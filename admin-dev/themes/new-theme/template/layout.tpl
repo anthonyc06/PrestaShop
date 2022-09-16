@@ -37,6 +37,20 @@
         <div class="component-search-background d-none"></div>
       </div>
 
+      <div class="component hide-mobile-sm" id="header-dark-mode-container">
+        <a class="link shop-state"
+          id="dark-mode"
+          data-toggle="pstooltip"
+          data-placement="bottom"
+          data-html="true"
+          title="<p class=&quot;text-left&quot;><strong>{l|escape s='Mode sombre.' d='Admin.Navigation.Notification'}</strong></p><p class=&quot;text-left&quot;>{l|escape s='Activez ou désactivez le mode sombre.' html=true sprintf=['[1]' => '<strong>', '[/1]' => '</strong>'] d='Admin.Navigation.Notification'}</p>"
+          href="#"
+        >
+          <i class="material-icons">compare</i>
+          <span>{l|escape s='Dark mode' d='Admin.Navigation.Header'}</span>
+        </a>
+      </div>
+
       {if isset($debug_mode) && $debug_mode == true}
         <div class="component hide-mobile-sm" id="header-debug-mode-container">
           <a class="link shop-state"

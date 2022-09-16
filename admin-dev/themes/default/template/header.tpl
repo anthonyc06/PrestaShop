@@ -169,6 +169,26 @@
       {$quick_access_current_link_name = " - "|explode:$quick_access_current_link_name}
       <script>
         $(function() {
+          var savedTheme = localStorage.getItem('theme');
+          var themeAttr = $("html").attr('theme');
+
+          if (typeof themeAttr == 'undefined' || themeAttr == false) {
+              $("html").attr("theme","light");
+          } 
+
+          if(savedTheme != undefined && savedTheme != null)
+            $("html").attr("theme", savedTheme);
+
+          $("#dark-mode").click(function(){
+            if($("html").attr("theme") == "dark") {
+              $("html").attr("theme","light");
+              localStorage.setItem('theme', 'light');
+            } else {
+              $("html").attr("theme","dark");
+              localStorage.setItem('theme', 'dark');
+            }
+          });
+
           $('.ajax-quick-link').on('click', function(e){
             e.preventDefault();
 
@@ -219,6 +239,20 @@
 
       {* Search *}
       {include file="search_form.tpl" show_clear_btn=1}
+
+      <div class="component hide-mobile-sm" id="header-dark-mode-container">
+          <a class="link shop-state"
+             id="dark-mode"
+             data-toggle="pstooltip"
+             data-placement="bottom"
+             data-html="true"
+             title="<p class=&quot;text-left&quot;><strong>{l|escape s='Dark mode.'}</strong></p><p class=&quot;text-left&quot;>{l|escape s='Switch dark mode.' html=true sprintf=['[1]' => '<strong>', '[/1]' => '</strong>']}</p>"
+             href="#"
+          >
+            <i class="material-icons">compare</i>
+            <span>{l|escape s='Dark mode' d='Admin.Navigation.Header'}</span>
+          </a>
+        </div>
 
       {if isset($debug_mode) && $debug_mode == true}
       <div class="component hide-mobile-sm">

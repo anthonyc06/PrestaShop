@@ -188,3 +188,14 @@ table.table {
     }
   }
 }
+
+/* Dark mode css */
+html[theme="dark"],
+html[theme="dark"] img {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+.main-header > .logo,
+html[theme="dark"] .nav-bar {
+  filter: invert(1) hue-rotate(180deg);
+}

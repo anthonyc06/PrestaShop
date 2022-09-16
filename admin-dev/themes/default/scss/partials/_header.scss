@@ -25,7 +25,8 @@ $search-border-color: #bbcdd2;
   #header_logo {
     width: 13.13rem;
     height: 100%;
-    background: url("#{$img-path}/prestashop-avatar-header_shopname.png") no-repeat center left;
+    background: url("#{$img-path}/prestashop-avatar-header_shopname.png")
+      no-repeat center left;
 
     .mobile & {
       flex-grow: 1;
@@ -51,7 +52,7 @@ $search-border-color: #bbcdd2;
     margin: {
       right: 0.5rem;
       left: 0.5rem;
-    };
+    }
 
     @include media-breakpoint-down(sm) {
       margin: 0;
@@ -61,7 +62,7 @@ $search-border-color: #bbcdd2;
       @media (max-width: breakpoint-max("sm")) {
         display: none;
       }
-    }	// disable bootstrap styling
+    } // disable bootstrap styling
   }
 
   .btn-link {
@@ -635,7 +636,6 @@ $search-border-color: #bbcdd2;
 
 #notification,
 #employee_infos {
-
   @include media-breakpoint-down(sm) {
     position: initial;
 
@@ -958,4 +958,15 @@ $search-border-color: #bbcdd2;
   > a > .material-icons {
     font-size: 22px;
   }
+}
+
+/* Dark mode css */
+html[theme="dark"],
+html[theme="dark"] img {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+.main-header > .logo,
+html[theme="dark"] .nav-bar {
+  filter: invert(1) hue-rotate(180deg);
 }
